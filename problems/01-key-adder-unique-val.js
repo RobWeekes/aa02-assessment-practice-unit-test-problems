@@ -13,35 +13,64 @@ keyAdderUniqueVal(cat, "fruit", "orange"); // => {name: "Willie", color: "orange
 console.log(cat); // { name: "Willie", color: "orange", toy: "yarn" }
 ***********************************************************************/
 
+// easier method is to create an array of values, then check includes method --
 
-function keyAdderUniqueVal(object, newKey, value) {
-	console.log(object);
+function keyAdderUniqueVal(object, key, newValue) {
+	let values = Object.values(object);
+	let keys = Object.keys(object);
+	console.log(values);
+	console.log(keys);
+	// console.log(Object.entries(object));
 
-	for(key in object) {
-		console.log(`current key value: ${object[key]}`);
-
-		// screen out any key/values with matching values, so do nothing & return same object
-		if(value === (object[key])) {
-			console.log(`matching key value: ${object[key]}`);
-			console.log(key);
-			console.log(object[key]);
-			console.log(`${value} is already a value in obj, do nothing`);
-			console.log(object);
-			return object;
-		}
+	if(!values.includes(newValue)) {
+		console.log('not included');
+		object[key] = newValue;
+		console.log(object);
 	}
-
-	// if all key values dont match the input 'value', add the pair outside the 'for key' loop
-	object[newKey] = value;
-	console.log(object);
 	return object;
 }
+
+//
 
 let cat = { name: 'Willie', color: 'orange' };
 keyAdderUniqueVal(cat, "toy", "yarn"); // => {name: "Willie", color: "orange", toy: "yarn"}
 console.log(cat);
 keyAdderUniqueVal(cat, "fruit", "orange"); // => {name: "Willie", color: "orange", toy: "yarn"}
 console.log(cat); // { name: "Willie", color: "orange", toy: "yarn" }
+
+keyAdderUniqueVal(cat, "fruit", "strawberry"); 		// adds unique value strawbarry
+console.log(cat);
+
+// first method
+
+// function keyAdderUniqueVal(object, newKey, value) {
+// 	console.log(object);
+
+// 	for(key in object) {
+// 		console.log(`current key value: ${object[key]}`);
+
+// 		// screen out any key/values with matching values, so do nothing & return same object
+// 		if(value === (object[key])) {
+// 			console.log(`matching key value: ${object[key]}`);
+// 			console.log(key);
+// 			console.log(object[key]);
+// 			console.log(`${value} is already a value in obj, do nothing`);
+// 			console.log(object);
+// 			return object;
+// 		}
+// 	}
+
+// 	// if all key values dont match the input 'value', add the pair outside the 'for key' loop
+// 	object[newKey] = value;
+// 	console.log(object);
+// 	return object;
+// }
+
+// let cat = { name: 'Willie', color: 'orange' };
+// keyAdderUniqueVal(cat, "toy", "yarn"); // => {name: "Willie", color: "orange", toy: "yarn"}
+// console.log(cat);
+// keyAdderUniqueVal(cat, "fruit", "orange"); // => {name: "Willie", color: "orange", toy: "yarn"}
+// console.log(cat); // { name: "Willie", color: "orange", toy: "yarn" }
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
