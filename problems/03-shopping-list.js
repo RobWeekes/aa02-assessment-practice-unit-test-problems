@@ -27,6 +27,15 @@ function shoppingList(list) {
     }
 }
 
+// working, do again
+// function shoppingList(list) {
+//     return function(arg) {
+//         list.push(arg);
+//         console.log(list);
+//         return list;
+//     }
+// }
+
 const groceryList = ['eggs']
 const addToGroceryList = shoppingList(groceryList); // returns a function
 addToGroceryList('maple syrup'); // returns ['eggs', 'maple syrup']

@@ -42,13 +42,16 @@ function filterUserProfiles(users, filter) {
 
     for(let i = 0; i < users.length; i++) {
         let el = users[i];
-        let filterResult = filter(el);      // invoke the helper callback function on each element
+        let filterResult = filter(el);
+        console.log(filterResult);     // invoke the helper callback function on each element
 
         if(filterResult) {    // if true,
             resultArr.push(el.name);
+            console.log(resultArr);
             // can use el.name because the name of key is literally 'name'
         }
     }
+    console.log(resultArr);
     return resultArr;
 }
 

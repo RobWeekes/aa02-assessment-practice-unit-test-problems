@@ -21,22 +21,66 @@ function pickyMyMap(arr, cb) {
 	for(let i = 0; i < arr.length; i++) {
 		let el = arr[i];
 		console.log(el);
-		let cbResult = cb(el);
-		console.log(cbResult);
+		result = cb(el);
+		console.log(result);
 
-		if(cbResult) {				// if cb result is "truthy," push the result into new arr
-			resultArr.push(cbResult);		// truthy = non zero numbers,
-		}									// falsy = 0, false, 0, -0, 0n, "", null, undefined, NaN
+		if(result) {
+			resultArr.push(result);
+		}
 	}
-
 	return resultArr;
 }
 
 const nums = [1, 2, 3, 4];
 console.log(pickyMyMap(nums, (num) => num - 2)); // [-1, 1, 2]
 
+const booleans = [true, false, true, false, true];
+console.log(pickyMyMap(booleans, (boolean) => !boolean)); // [true, true]
+
+
+// function pickyMyMap(arr, cb) {
+// 	let resultArr = [];
+
+// 	for(let i = 0; i < arr.length; i++) {
+// 		let el = arr[i];
+// 		console.log(el);
+// 		let cbResult = cb(el);
+// 		console.log(cbResult);
+
+// 		if(cbResult) {				// if cb result is "truthy," push the result into new arr
+// 			resultArr.push(cbResult);		// truthy = non zero numbers,
+// 		}									// falsy = 0, false, 0, -0, 0n, "", null, undefined, NaN
+// 	}
+
+// 	return resultArr;
+// }
+
+
+
+// TRYING MAP METHOD - not working
+
+// function pickyMyMap(arr, cb) {
+// 	let resultArr = [];
+
+// 		resultArr = arr.map((ele) => {
+// 			if(cb(ele)) {
+// 				cb(ele);
+// 				// resultArr.push(cb(ele));
+// 			}
+
+// 		})
+
+// 	console.log(resultArr)
+// 	return resultArr;
+// }
+
+
+
+// const nums = [1, 2, 3, 4];
+// console.log(pickyMyMap(nums, (num) => num - 2)); // [-1, 1, 2]
+
 // const booleans = [true, false, true, false, true];
-// pickyMyMap(booleans, (boolean) => !boolean); // [true, true]
+// console.log(pickyMyMap(booleans, (boolean) => !boolean)); // [true, true]
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
